@@ -5,7 +5,6 @@ curl_easy_setopt(hnd, CURLOPT_URL, "https://api.evasrv.com/email_verification/")
 
 struct curl_slist *headers = NULL;
 headers = curl_slist_append(headers, "content-type: application/x-www-form-urlencoded");
-headers = curl_slist_append(headers, "postman-token: 1a797534-fac3-f917-fb22-465507506534");
 headers = curl_slist_append(headers, "cache-control: no-cache");
 curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
