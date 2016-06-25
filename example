@@ -1,0 +1,14 @@
+CURL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, "https://api.evasrv.com/email_verification/");
+
+struct curl_slist *headers = NULL;
+headers = curl_slist_append(headers, "content-type: application/x-www-form-urlencoded");
+headers = curl_slist_append(headers, "postman-token: 1a797534-fac3-f917-fb22-465507506534");
+headers = curl_slist_append(headers, "cache-control: no-cache");
+curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "email=test%40domain.com&user_API_token=ggd0143305f60a131dc5d458431e756e7d1b19ba&=");
+
+CURLcode ret = curl_easy_perform(hnd);
